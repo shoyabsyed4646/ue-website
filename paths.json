@@ -1,8 +1,8 @@
 {
   "mappings": [
-    "/content/aem-boilerplate/:/",
-    "/content/aem-boilerplate/configuration:/.helix/config.json",
-    "/content/aem-boilerplate/metadata:/metadata.json"
+    "/content/ue-website-site/:/",
+    "/content/ue-website-site/configuration:/.helix/config.json",
+    "/content/ue-website-site/metadata:/metadata.json"
   ],
   "includes": [
     "/content/aem-boilerplate/"
