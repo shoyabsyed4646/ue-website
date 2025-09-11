@@ -5,6 +5,6 @@
     "/content/ue-website-site/metadata:/metadata.json"
   ],
   "includes": [
-    "/content/aem-boilerplate/"
+    "/content/ue-website-site/"
   ]
 }
