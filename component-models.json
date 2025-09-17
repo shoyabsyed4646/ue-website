@@ -233,5 +233,24 @@
         "value": ""
       }
     ]
+  },
+  {
+    "id": "tooltip",
+    "fields": [
+      {
+        "component": "text",
+        "name": "trigger",
+        "label": "Trigger Text",
+        "valueType": "string",
+        "value": "Hover me"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Tooltip Text",
+        "valueType": "string",
+        "value": "<p>Helpful explanation here</p>"
+      }
+    ]
   }
 ]
