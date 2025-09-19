@@ -24,19 +24,35 @@ export default function decorate(block) {
   const quoteField = findFieldEl(quoteCol);
   const authorField = findFieldEl(authorCol);
 
-  // Create semantic elements
+  // --- QUOTE ---
   const blockquote = document.createElement('blockquote');
   blockquote.innerHTML = (quoteField && quoteField.innerHTML) ? quoteField.innerHTML.trim() : '';
 
+  if (quoteField) {
+    moveInstrumentation(quoteField, blockquote);
+  }
+  // fallback if no data-aue-prop came from DOM
+  if (!blockquote.hasAttribute('data-aue-prop')) {
+    blockquote.setAttribute('data-aue-prop', 'quote');
+  }
 
-  if (quoteField) moveInstrumentation(quoteField, blockquote);
-
+  // --- AUTHOR ---
   let cite = null;
   if (authorField) {
     cite = document.createElement('cite');
     cite.textContent = authorField.textContent.trim();
-    if (authorField) moveInstrumentation(authorField, cite);
+
+    moveInstrumentation(authorField, cite);
+
+    if (!cite.hasAttribute('data-aue-prop')) {
+      cite.setAttribute('data-aue-prop', 'author');
+    }
   }
-  if (cite) block.replaceChildren(blockquote, cite);
-  else block.replaceChildren(blockquote);
+
+  // --- Replace with semantic HTML ---
+  if (cite) {
+    block.replaceChildren(blockquote, cite);
+  } else {
+    block.replaceChildren(blockquote);
+  }
 }
